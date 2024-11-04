@@ -1,0 +1,85 @@
+{
+  "resourceType": "QuestionnaireResponse",
+  "id": "MQL-QuestionnaireResponse",
+  "questionnaire": "Questionnaire/MQL-Questionnaire",
+  "status": "completed",
+  "subject": {
+    "reference": "Patient/106731"
+  },
+  "author": {
+    "reference": "Practitioner/PR1234"
+  },
+  "encounter": {
+    "reference": "Encounter/ENC9876"
+  },
+  "episodeOfCare": {
+    "reference": "EpisodeOfCare/EOC12345"
+  },
+  "authored": "2023-10-10T21:08:11Z",
+  "item": [
+    {
+      "linkId": "1",
+      "answer": [
+        {
+          "valueString": "No Difficulty"
+        }
+      ]
+    },
+    {
+      "linkId": "2",
+      "answer": [
+        {
+          "valueString": "Mild Difficulty"
+        }
+      ]
+    },
+    {
+      "linkId": "3",
+      "answer": [
+        {
+          "valueString": "Severe Difficulty"
+        }
+      ]
+    },
+    {
+      "linkId": "4",
+      "answer": [
+        {
+          "valueString": "Unable"
+        }
+      ]
+    },
+    {
+      "linkId": "5",
+      "answer": [
+        {
+          "valueString": "Mild Difficulty"
+        }
+      ]
+    },
+    {
+      "linkId": "6",
+      "answer": [
+        {
+          "valueString": "No Difficulty"
+        }
+      ]
+    },
+    {
+      "linkId": "7",
+      "answer": [
+        {
+          "valueString": "Severe Difficulty"
+        }
+      ]
+    },
+    {
+      "linkId": "8",
+      "answer": [
+        {
+          "valueString": "Unable"
+        }
+      ]
+    }
+  ]
+}
