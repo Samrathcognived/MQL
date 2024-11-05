@@ -16,20 +16,23 @@ const RatingTable = ({ title }) => {
 
   const handleScoreChange = (activityId, difficulty, category) => {
     const score = optionScore(difficulty);
+    console.log(title);
     setActivityScores((prevScores) => {
       const updatedScores = { ...prevScores, [activityId]: score };
+      if (title === "Physical Capacity") {
+        const physicalTotal = physicalActivities.reduce(
+          (sum, activity) => sum + (updatedScores[activity.linkId] || 0),
+          0
+        );
+        dispatch(updatePhysicalScore(physicalTotal));
+      } else {
+        const mentalTotal = mentalActivities.reduce(
+          (sum, activity) => sum + (updatedScores[activity.linkId] || 0),
+          0
+        );
 
-      const physicalTotal = physicalActivities.reduce(
-        (sum, activity) => sum + (updatedScores[activity.linkId] || 0),
-        0
-      );
-      const mentalTotal = mentalActivities.reduce(
-        (sum, activity) => sum + (updatedScores[activity.linkId] || 0),
-        0
-      );
-
-      dispatch(updatePhysicalScore(physicalTotal));
-      dispatch(updateMentalScore(mentalTotal));
+        dispatch(updateMentalScore(mentalTotal));
+      }
 
       return updatedScores;
     });
@@ -38,9 +41,9 @@ const RatingTable = ({ title }) => {
   const optionScore = (type) => {
     if (type === "no-difficulty") return 12.5;
     if (type === "mild-difficulty") return 9.375;
-    if (type === "moderate-difficulty") return 8.5;
-    if (type === "severe-difficulty") return 6.25;
-    return 3.125;
+    if (type === "moderate-difficulty") return 6.25;
+    if (type === "severe-difficulty") return 3.125;
+    return 0;
   };
 
   const handleDataBasedOnTitle = () => {
@@ -56,8 +59,8 @@ const RatingTable = ({ title }) => {
         <tr>
           <th className="heading">
             {title === "Physical Capapcity"
-              ? "Currently how much physical effort do you exert doing the following activities"
-              : "During the past week, how much have you had in managing the following ?"}
+              ? "How much phsical difficulty do you have in managing the following"
+              : "How much mental difficulty do you have in managing the following ?"}
           </th>
           <th>No Difficulty</th>
           <th>Mild Difficulty</th>

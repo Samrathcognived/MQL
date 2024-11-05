@@ -7,22 +7,22 @@
   "item": [
     {
       "linkId": "1",
-      "text": "Daily Living: Basic (Eating, Grooming, Bathing, Dressing, Using the Toilet, Mobility)",
+      "text": "Basic daily living: moving around, brushing your hair, getting dressed, and using the bathroom?",
       "type": "string"
     },
     {
       "linkId": "2",
-      "text": "Daily Living: Advanced (Housekeeping, Shopping)",
+      "text": "Advance daily living: cleaning, shopping, cooking",
       "type": "string"
     },
     {
       "linkId": "3",
-      "text": "Work (Making a living)",
+      "text": "Work or school",
       "type": "string"
     },
     {
       "linkId": "4",
-      "text": "Leisure / Recreation (Hobbies, Exercise, Sports)",
+      "text": "Hobbies, Leisure and community activities",
       "type": "string"
     },
     {
@@ -32,17 +32,17 @@
     },
     {
       "linkId": "6",
-      "text": "The needs of your immediate family",
+      "text": "Your immediate family needs",
       "type": "string"
     },
     {
       "linkId": "7",
-      "text": "The needs of your extended family/friends/co-workers",
+      "text": "Extended family,friends, co-workers needs",
       "type": "string"
     },
     {
       "linkId": "8",
-      "text": "The needs of your community",
+      "text": "community needs",
       "type": "string"
     }
   ]
