@@ -58,8 +58,8 @@ const RatingTable = ({ title }) => {
       <thead>
         <tr>
           <th className="heading">
-            {title === "Physical Capapcity"
-              ? "How much phsical difficulty do you have in managing the following"
+            {title === "Physical Capacity"
+              ? "How much physical difficulty do you have in managing the following"
               : "How much mental difficulty do you have in managing the following ?"}
           </th>
           <th>No Difficulty</th>
