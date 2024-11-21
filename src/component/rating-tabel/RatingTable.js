@@ -16,7 +16,6 @@ const RatingTable = ({ title }) => {
 
   const handleScoreChange = (activityId, difficulty, category) => {
     const score = optionScore(difficulty);
-    console.log(activityScores);
     setActivityScores((prevScores) => {
       const updatedScores = { ...prevScores, [activityId]: score };
       if (title === "Physical Capacity") {
@@ -52,14 +51,14 @@ const RatingTable = ({ title }) => {
     }
     return data.item.slice(4);
   };
-
+  console.log(title, "title");
   return (
     <table>
       <thead>
         <tr>
           <th className="heading">
             {title === "Physical Capapcity"
-              ? "How much phsical difficulty do you have in managing the following"
+              ? "How much physical difficulty do you have in managing the following"
               : "How much mental difficulty do you have in managing the following ?"}
           </th>
           <th>No Difficulty</th>

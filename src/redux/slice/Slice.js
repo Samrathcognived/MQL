@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   physicalScore: "",
   mentalScore: "",
+  mobileCompoType: 1,
 };
 
 export const userSlice = createSlice({
@@ -15,6 +16,9 @@ export const userSlice = createSlice({
     updateMentalScore: (state, action) => {
       state.mentalScore = action.payload;
     },
+    changeMobileCompoType: (state, action) => {
+      state.mobileCompoType = action.payload;
+    },
 
     resetData: (state) => {
       return initialState;
@@ -22,7 +26,11 @@ export const userSlice = createSlice({
   },
 });
 
-export const { updatePhysicalScore, updateMentalScore, resetData } =
-  userSlice.actions;
+export const {
+  updatePhysicalScore,
+  updateMentalScore,
+  resetData,
+  changeMobileCompoType,
+} = userSlice.actions;
 
 export default userSlice.reducer;

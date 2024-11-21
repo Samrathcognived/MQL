@@ -1,0 +1,55 @@
+.otp-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  text-align: center;
+  flex-direction: column;
+  height: 50vh;
+}
+.otp-input-field {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.otp-input {
+  border: none;
+  border-bottom: 1px solid #000;
+  outline: none;
+  font-size: 16px;
+  padding: 5px 0;
+  width: 200px;
+  text-align: center;
+}
+
+.otp-input::placeholder {
+  color: #000;
+  font-size: 16px;
+}
+
+.submit-button {
+  background-color: #33c4a0;
+  border-radius: 8px;
+  border-style: none;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 1rem;
+  font-weight: 500;
+  height: 40px;
+  line-height: 20px;
+  list-style: none;
+  margin: 0;
+  outline: none;
+  padding: 5px 20px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: color 100ms;
+  vertical-align: baseline;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}

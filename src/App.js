@@ -1,37 +1,17 @@
-import { useState } from "react";
 import "./App.css";
-import MQLQuestionnaireUI from "./component/maql-questionnaire-uI/MQLQuestionnaireUI";
-import { useSelector } from "react-redux";
+import { Route, Routes } from "react-router-dom";
+import TokenPage from "./component/pages/token-page/TokenPage";
+import OtpPage from "./component/pages/otp-page/OtpPage";
+import Questionnaire from "./component/pages/questionnaire-page/Questionnaire";
 
 function App() {
-  const [show, setShow] = useState(false);
-  const { physicalScore, mentalScore } = useSelector((state) => state.user);
-
-  const showConsole = () => {
-    alert("getting token");
-  };
-
-  const handleToggle = () => {
-    setShow(!show);
-  };
-
   return (
     <div className="app">
-      {!show && (
-        <div className="home">
-          <button onClick={showConsole}>Get Token</button>
-          <button onClick={handleToggle}>Questionnaire</button>
-        </div>
-      )}
-      {show && (
-        <>
-          <h1>
-            MQL score: <span>{Math.ceil(physicalScore + mentalScore)}</span>
-          </h1>
-          <MQLQuestionnaireUI compoName={"Physical Capacity"} />
-          <MQLQuestionnaireUI compoName={"Mental Capacity"} />
-        </>
-      )}
+      <Routes>
+        <Route path="/" element={<OtpPage />} />
+        <Route path="/token" element={<TokenPage />} />
+        <Route path="/questionnaire" element={<Questionnaire />} />
+      </Routes>
     </div>
   );
 }
