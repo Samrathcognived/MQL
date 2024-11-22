@@ -55,6 +55,7 @@ const QuestionSet = ({ type }) => {
 
   useEffect(() => {
     handleFinalPage();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [physicalActivityIndex, mentalActivityIndex]);
 
   const handleNextIndex = () => {
