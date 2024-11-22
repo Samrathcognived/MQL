@@ -1,15 +1,28 @@
 import { useEffect, useState } from "react";
 import data from "../../json-data/data.json";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  setMentalActivityAnswer,
+  setMentalActivityIndex,
+  setPhysicalActivityAnswer,
+  setPhysicalActivityIndex,
+  setSelectedDifficulty,
+} from "../../redux/slice/Slice";
+import { useNavigate } from "react-router-dom";
 
 const QuestionSet = ({ type }) => {
-  // type 1 is for physical activity , type 2 is for mental health
+  const [dataToRender, setDataToRender] = useState([]);
 
-  const [physicalActivityAnswer, setPhysicalActivityAnswer] = useState([]);
-  const [mentalActivityAnswer, setMentalActivityAnswer] = useState([]);
-  const [physicalActivityIndex, setPhysicalActivityIndex] = useState(0);
-  const [mentalActivityIndex, setMentalActivityIndex] = useState(0);
-  const [selectedDifficulty, setSelectedDifficulty] = useState("");
-  const [dataToRender, setDataRender] = useState(data.item.slice(0, 4));
+  const {
+    physicalActivityAnswer,
+    mentalActivityAnswer,
+    physicalActivityIndex,
+    mentalActivityIndex,
+    selectedDifficulty,
+  } = useSelector((state) => state.user);
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const options = [
     "No Difficulty",
@@ -18,128 +31,86 @@ const QuestionSet = ({ type }) => {
     "Severe Difficulty",
     "Unable",
   ];
+
   const handleQuestionsTypes = (type) => {
-    if (type === 1) {
-      return data.item.slice(0, 4);
+    if (!data.item || !Array.isArray(data.item)) {
+      console.error("Invalid data structure");
+      return [];
     }
-    return data.item.slice(4, 8);
+    return type === 1 ? data.item.slice(0, 4) : data.item.slice(4, 8);
+  };
+
+  const handleFinalPage = () => {
+    const currentIndex =
+      type === 1 ? physicalActivityIndex : mentalActivityIndex;
+
+    if (currentIndex >= dataToRender.length && dataToRender.length !== 0) {
+      navigate("/results");
+    }
   };
 
   useEffect(() => {
-    setDataRender(handleQuestionsTypes(type));
+    setDataToRender(handleQuestionsTypes(type));
   }, [type]);
 
-  const handleNextIndex = (type) => {
+  useEffect(() => {
+    handleFinalPage();
+  }, [physicalActivityIndex, mentalActivityIndex]);
+
+  const handleNextIndex = () => {
     if (type === 1) {
-      setPhysicalActivityAnswer((prev) => {
-        const newAnswers = [...prev];
-        newAnswers[physicalActivityIndex] = selectedDifficulty;
-        return newAnswers;
-      });
-      setPhysicalActivityIndex((prev) => prev + 1);
-      setSelectedDifficulty("");
+      const newAnswers = [...physicalActivityAnswer];
+      newAnswers[physicalActivityIndex] = selectedDifficulty;
+      dispatch(setPhysicalActivityAnswer(newAnswers));
+      dispatch(setPhysicalActivityIndex(physicalActivityIndex + 1));
     } else {
-      setMentalActivityAnswer((prev) => {
-        const newAnswers = [...prev];
-        newAnswers[mentalActivityIndex] = selectedDifficulty;
-        return newAnswers;
-      });
-      setMentalActivityIndex((prev) => prev + 1);
-      setSelectedDifficulty("");
+      const newAnswers = [...mentalActivityAnswer];
+      newAnswers[mentalActivityIndex] = selectedDifficulty;
+      dispatch(setMentalActivityAnswer(newAnswers));
+      dispatch(setMentalActivityIndex(mentalActivityIndex + 1));
     }
-  };
-  const handlePreviousIndex = (type) => {
-    if (type === 1) {
-      if (physicalActivityIndex > 0) {
-        setPhysicalActivityIndex((prev) => prev - 1);
-        setSelectedDifficulty(
-          physicalActivityAnswer[physicalActivityIndex - 1]
-        );
-      }
-    } else {
-      if (mentalActivityIndex > 0) {
-        setMentalActivityIndex((prev) => prev - 1);
-        setSelectedDifficulty(mentalActivityAnswer[mentalActivityIndex - 1]);
-      }
-    }
+    dispatch(setSelectedDifficulty(""));
   };
 
-  const handleFinalPage = (type) => {
-    if (type === 1) {
-      return physicalActivityIndex >= dataToRender.length;
-    }
-    if (type === 2) {
-      return mentalActivityIndex >= dataToRender.length;
-    }
-    return false;
-  };
-
-  const handleBackButtonDisable = (type) => {
-    if (type === 1) {
-      return physicalActivityIndex === 0;
-    }
-    if (type === 2) {
-      return mentalActivityIndex === 0;
-    }
-    return true;
-  };
-
-  const handleQuestionRender = (type) => {
-    if (type === 1 && physicalActivityIndex <= 3) {
-      return dataToRender[physicalActivityIndex].text;
-    }
-
-    if (type === 2 && mentalActivityIndex <= 3) {
-      return dataToRender[mentalActivityIndex].text;
-    }
+  const handleQuestionRender = () => {
+    const currentIndex =
+      type === 1 ? physicalActivityIndex : mentalActivityIndex;
+    return dataToRender[currentIndex]?.text || "";
   };
 
   return (
     <>
-      {handleFinalPage(type) ? (
-        <div>
-          <p className="final-msg">Thank you for completing the survey</p>
+      <div>
+        <h3 className="static-question">
+          {type === 1
+            ? "How much physical difficulty do you have in managing the following"
+            : "How much mental difficulty do you have in managing the following ?"}
+        </h3>
+        <p className="dynamic-question">{handleQuestionRender()}</p>
+        <div className="mobile-options">
+          {options.map((option, index) => (
+            <label key={index} className="mobile-option-label">
+              <input
+                type="radio"
+                value={option}
+                checked={selectedDifficulty === option}
+                onChange={() => dispatch(setSelectedDifficulty(option))}
+                style={{ marginRight: "10px" }}
+              />
+              {option}
+            </label>
+          ))}
         </div>
-      ) : (
-        <div>
-          <h3 className="static-question">
-            {type === 1
-              ? "How much physical difficulty do you have in managing the following"
-              : "How much mental difficulty do you have in managing the following ?"}
-          </h3>
-          <p className="dynamic-question">{handleQuestionRender(type)}</p>
-          <div className="mobile-options">
-            {options.map((option) => (
-              <label key={option} className="mobile-option-label">
-                <input
-                  type="radio"
-                  value={option}
-                  checked={selectedDifficulty === option}
-                  onChange={() => setSelectedDifficulty(option)}
-                  style={{ marginRight: "10px" }}
-                />
-                {option}
-              </label>
-            ))}
-          </div>
-          <div className="button-group">
-            <button
-              className="m-button"
-              onClick={() => handlePreviousIndex(type)}
-              disabled={handleBackButtonDisable(type)}
-            >
-              Back
-            </button>
-            <button
-              className="m-button"
-              onClick={() => handleNextIndex(type)}
-              disabled={!selectedDifficulty}
-            >
-              Next
-            </button>
-          </div>
+        <div className="button-group">
+          <button
+            className="m-button"
+            onClick={handleNextIndex}
+            disabled={!selectedDifficulty}
+          >
+            Next
+          </button>
         </div>
-      )}
+      </div>
     </>
   );
 };

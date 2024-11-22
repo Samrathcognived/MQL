@@ -22,7 +22,6 @@ function Dropdown() {
     <div className="dropdown">
       <button className="dropdown-button" onClick={toggleDropdown}>
         {selectedOption}{" "}
-        <span className="dropdown-arrow">{isOpen ? "▲" : "▼"}</span>
       </button>
       {isOpen && (
         <div className="dropdown-options">

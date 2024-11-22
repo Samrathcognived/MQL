@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./otp-page.css";
 import { useNavigate } from "react-router-dom";
+import modusLogo from "../../../static/logo-img/modus-logo.png";
 
 const OtpPage = () => {
   const [inputValue, setInputValue] = useState("");
@@ -11,15 +12,18 @@ const OtpPage = () => {
   };
 
   const handleRedirectPage = () => {
-    navigate("/token");
+    navigate("/questionnaire");
   };
 
   return (
     <div className="otp-container">
-      <p>
-        Enter OTP to Begin. <br />
+      <div className="otp-header">
+        <img src={modusLogo} alt="Modus Logo" className="logo" />
+      </div>
+      <p className="otp-para">Enter OTP to Begin.</p>
+      <span className="otp-span">
         OTP was sent your mobile number 93*****34
-      </p>
+      </span>
 
       <div className="otp-input-field">
         <input
@@ -30,11 +34,10 @@ const OtpPage = () => {
           value={inputValue}
         />
       </div>
-      {inputValue.length >= 5 && (
-        <button className="submit-button" onClick={handleRedirectPage}>
-          Submit
-        </button>
-      )}
+
+      <button className="submit-button" onClick={handleRedirectPage}>
+        Send
+      </button>
     </div>
   );
 };

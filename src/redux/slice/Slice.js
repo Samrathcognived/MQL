@@ -4,6 +4,11 @@ const initialState = {
   physicalScore: "",
   mentalScore: "",
   mobileCompoType: 1,
+  physicalActivityAnswer: [],
+  mentalActivityAnswer: [],
+  physicalActivityIndex: 0,
+  mentalActivityIndex: 0,
+  selectedDifficulty: "",
 };
 
 export const userSlice = createSlice({
@@ -19,6 +24,21 @@ export const userSlice = createSlice({
     changeMobileCompoType: (state, action) => {
       state.mobileCompoType = action.payload;
     },
+    setPhysicalActivityAnswer: (state, action) => {
+      state.physicalActivityAnswer = action.payload;
+    },
+    setMentalActivityAnswer: (state, action) => {
+      state.mentalActivityAnswer = action.payload;
+    },
+    setPhysicalActivityIndex: (state, action) => {
+      state.physicalActivityIndex = action.payload;
+    },
+    setMentalActivityIndex: (state, action) => {
+      state.mentalActivityIndex = action.payload;
+    },
+    setSelectedDifficulty: (state, action) => {
+      state.selectedDifficulty = action.payload;
+    },
 
     resetData: (state) => {
       return initialState;
@@ -31,6 +51,11 @@ export const {
   updateMentalScore,
   resetData,
   changeMobileCompoType,
+  setMentalActivityAnswer,
+  setMentalActivityIndex,
+  setPhysicalActivityAnswer,
+  setPhysicalActivityIndex,
+  setSelectedDifficulty,
 } = userSlice.actions;
 
 export default userSlice.reducer;

@@ -7,7 +7,6 @@ const MobileMqlUi = () => {
   const { mobileCompoType } = useSelector((state) => state.user);
   return (
     <div className="mobile-ui-container">
-      <h1 className="mobile-head">Modus</h1>
       <CategoryQuestion />
       <QuestionSet type={mobileCompoType} />
     </div>

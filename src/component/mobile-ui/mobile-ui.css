@@ -5,7 +5,7 @@
 .dropdown-button {
   width: 100%;
   padding: 10px;
-  border: 1px solid #ccc;
+  border: none;
   border-radius: 5px;
   background-color: #fff;
   text-align: left;
@@ -16,6 +16,8 @@
   border-top: none;
   border-left: none;
   border-right: none;
+  font-size: 1rem;
+  font-weight: 500;
 }
 
 .dropdown-button:hover {
@@ -59,24 +61,28 @@
   text-align: center;
   margin: 10px 0;
   padding: 10px 20px;
+  background-color: #faf5f6;
+  font-size: 1.25rem;
+  font-weight: 700;
 }
 
 .mobile-options {
   display: flex;
   flex-direction: column;
-  margin: 10px 30px;
+  margin: 10px 20px;
 }
 
 .mobile-options .mobile-option-label {
   display: flex;
   align-items: center;
   margin-bottom: 10px;
-  font-size: 16px;
+  font-size: 1rem;
+  font-weight: 300;
 }
 
 .dynamic-question {
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 300;
   text-align: center;
   padding: 10px 20px;
   padding-top: 0;
@@ -90,10 +96,33 @@
 }
 
 .button-group .m-button {
-  background-color: transparent;
-  border: none;
-  color: #165bff;
-  font-size: 1rem;
+  border: 5px solid #ffffff;
+  border-style: none;
+  box-sizing: border-box;
+  background-color: #cbf3f3;
+  border-radius: 20px;
+  color: black;
+  font-weight: 800;
+  font-size: 1.2rem;
+  width: 100%;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 500;
+  height: 40px;
+  line-height: 20px;
+  list-style: none;
+  margin: 0;
+  outline: none;
+  padding: 5px 20px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: color 100ms;
+  vertical-align: baseline;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  box-shadow: 4px 4px 40px 2px #676a6b26;
 }
 
 .mobile-ui-container .mobile-head {
@@ -107,4 +136,48 @@
   align-items: center;
   justify-content: center;
   height: 50vh;
+}
+
+.category-question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.category-question .disable {
+  color: gray;
+  display: flex;
+  align-items: center;
+  gap: 1px;
+}
+
+.category-question .back-btn {
+  display: flex;
+  align-items: center;
+  gap: 1px;
+}
+
+.category-question .back-btn button {
+  color: #008081;
+  background-color: transparent;
+  border: none;
+  font-size: 1.1rem;
+  font-weight: 400;
+  margin-bottom: 5px;
+}
+
+.category-question .disable button {
+  color: gray;
+  background-color: transparent;
+  border: none;
+  font-size: 1.1rem;
+  font-weight: 400;
+  margin-bottom: 5px;
+}
+
+.question-count {
+  color: #555555;
+  font-size: 17px;
+  font-weight: 400;
 }
