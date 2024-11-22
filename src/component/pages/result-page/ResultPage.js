@@ -7,17 +7,11 @@ import {
   setMentalActivityIndex,
   setPhysicalActivityAnswer,
   setPhysicalActivityIndex,
-  setSelectedDifficulty,
 } from "../../../redux/slice/Slice";
 
 const ResultPage = () => {
-  const {
-    physicalActivityAnswer,
-    mentalActivityAnswer,
-    mobileCompoType,
-    physicalActivityIndex,
-    mentalActivityIndex,
-  } = useSelector((state) => state.user);
+  const { physicalActivityAnswer, mentalActivityAnswer, mobileCompoType } =
+    useSelector((state) => state.user);
 
   const navigate = useNavigate();
   const dispatch = useDispatch();

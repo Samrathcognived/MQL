@@ -16,6 +16,7 @@ const RatingTable = ({ title }) => {
 
   const handleScoreChange = (activityId, difficulty, category) => {
     const score = optionScore(difficulty);
+    console.log(activityScores);
     setActivityScores((prevScores) => {
       const updatedScores = { ...prevScores, [activityId]: score };
       if (title === "Physical Capacity") {
