@@ -52,7 +52,6 @@ const RatingTable = ({ title }) => {
     }
     return data.item.slice(4);
   };
-  console.log(title, "title");
   return (
     <table>
       <thead>

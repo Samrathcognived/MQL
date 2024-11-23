@@ -1,49 +1,35 @@
 import { useDispatch, useSelector } from "react-redux";
 import LeftBackArrow from "../../static/svg/LeftBackArrow";
-import Dropdown from "./Dropdown";
 import {
-  setMentalActivityIndex,
-  setPhysicalActivityIndex,
   setSelectedDifficulty,
+  updateQuestionIndex,
 } from "../../redux/slice/Slice";
 
 const CategoryQuestion = () => {
-  const {
-    physicalActivityAnswer,
-    mentalActivityAnswer,
-    physicalActivityIndex,
-    mentalActivityIndex,
-    mobileCompoType,
-  } = useSelector((state) => state.user);
+  const { questionIndex, allAnswers } = useSelector((state) => state.user);
 
   const dispatch = useDispatch();
 
   const handlePreviousIndex = () => {
-    if (mobileCompoType === 1 && physicalActivityIndex > 0) {
-      dispatch(setPhysicalActivityIndex(physicalActivityIndex - 1));
-      dispatch(
-        setSelectedDifficulty(physicalActivityAnswer[physicalActivityIndex - 1])
-      );
-    } else if (mobileCompoType === 2 && mentalActivityIndex > 0) {
-      dispatch(setMentalActivityIndex(mentalActivityIndex - 1));
-      dispatch(
-        setSelectedDifficulty(mentalActivityAnswer[mentalActivityIndex - 1])
-      );
+    // if (mobileCompoType === 1 && physicalActivityIndex > 0) {
+    //   dispatch(setPhysicalActivityIndex(physicalActivityIndex - 1));
+    //   dispatch(
+    //     setSelectedDifficulty(physicalActivityAnswer[physicalActivityIndex - 1])
+    //   );
+    // } else if (mobileCompoType === 2 && mentalActivityIndex > 0) {
+    //   dispatch(setMentalActivityIndex(mentalActivityIndex - 1));
+    //   dispatch(
+    //     setSelectedDifficulty(mentalActivityAnswer[mentalActivityIndex - 1])
+    //   );
+    // }
+    if (questionIndex > 0) {
+      dispatch(updateQuestionIndex(questionIndex - 1));
+      dispatch(setSelectedDifficulty(allAnswers[questionIndex] - 1));
     }
   };
   const handleBackButtonDisable = () => {
-    return mobileCompoType === 1
-      ? physicalActivityIndex === 0
-      : mentalActivityIndex === 0;
+    return questionIndex === 0;
   };
-
-  const showCounts = () => {
-    if (mobileCompoType === 1) {
-      return physicalActivityIndex + 1;
-    }
-    return mentalActivityIndex + 1;
-  };
-
   return (
     <div className="category-question">
       <div
@@ -56,8 +42,10 @@ const CategoryQuestion = () => {
         </span>
         <button>Back</button>
       </div>
-      <Dropdown />
-      <span className="question-count">{showCounts()} of 4</span>
+      <span>
+        {questionIndex + 1 <= 4 ? "Physical effort" : "Mental effort"}
+      </span>
+      <span className="question-count">{questionIndex + 1} of 8</span>
     </div>
   );
 };

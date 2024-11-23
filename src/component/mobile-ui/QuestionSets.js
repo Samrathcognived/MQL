@@ -1,25 +1,17 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import data from "../../json-data/data.json";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  setMentalActivityAnswer,
-  setMentalActivityIndex,
-  setPhysicalActivityAnswer,
-  setPhysicalActivityIndex,
   setSelectedDifficulty,
+  updateAllAnswer,
+  updateQuestionIndex,
 } from "../../redux/slice/Slice";
 import { useNavigate } from "react-router-dom";
 
 const QuestionSet = ({ type }) => {
-  const [dataToRender, setDataToRender] = useState([]);
-
-  const {
-    physicalActivityAnswer,
-    mentalActivityAnswer,
-    physicalActivityIndex,
-    mentalActivityIndex,
-    selectedDifficulty,
-  } = useSelector((state) => state.user);
+  const { selectedDifficulty, questionIndex, allAnswers } = useSelector(
+    (state) => state.user
+  );
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -32,62 +24,44 @@ const QuestionSet = ({ type }) => {
     "Unable",
   ];
 
-  const handleQuestionsTypes = (type) => {
-    if (!data.item || !Array.isArray(data.item)) {
-      console.error("Invalid data structure");
-      return [];
-    }
-    return type === 1 ? data.item.slice(0, 4) : data.item.slice(4, 8);
-  };
-
   const handleFinalPage = () => {
-    const currentIndex =
-      type === 1 ? physicalActivityIndex : mentalActivityIndex;
-
-    if (currentIndex >= dataToRender.length && dataToRender.length !== 0) {
-      navigate("/results");
+    if (questionIndex + 1 > 8) {
+      navigate("/final");
     }
   };
-
-  useEffect(() => {
-    setDataToRender(handleQuestionsTypes(type));
-  }, [type]);
 
   useEffect(() => {
     handleFinalPage();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [physicalActivityIndex, mentalActivityIndex]);
+  }, [questionIndex]);
 
   const handleNextIndex = () => {
-    if (type === 1) {
-      const newAnswers = [...physicalActivityAnswer];
-      newAnswers[physicalActivityIndex] = selectedDifficulty;
-      dispatch(setPhysicalActivityAnswer(newAnswers));
-      dispatch(setPhysicalActivityIndex(physicalActivityIndex + 1));
-    } else {
-      const newAnswers = [...mentalActivityAnswer];
-      newAnswers[mentalActivityIndex] = selectedDifficulty;
-      dispatch(setMentalActivityAnswer(newAnswers));
-      dispatch(setMentalActivityIndex(mentalActivityIndex + 1));
-    }
+    // if (type === 1) {
+    //   const newAnswers = [...physicalActivityAnswer];
+    //   newAnswers[physicalActivityIndex] = selectedDifficulty;
+    //   dispatch(setPhysicalActivityAnswer(newAnswers));
+    //   dispatch(setPhysicalActivityIndex(physicalActivityIndex + 1));
+    // } else {
+    //   const newAnswers = [...mentalActivityAnswer];
+    //   newAnswers[mentalActivityIndex] = selectedDifficulty;
+    //   dispatch(setMentalActivityAnswer(newAnswers));
+    //   dispatch(setMentalActivityIndex(mentalActivityIndex + 1));
+    // }
+    const newAnswers = [...allAnswers];
+    newAnswers[questionIndex] = selectedDifficulty;
+    dispatch(updateAllAnswer(newAnswers));
+    dispatch(updateQuestionIndex(questionIndex + 1));
     dispatch(setSelectedDifficulty(""));
   };
 
   const handleQuestionRender = () => {
-    const currentIndex =
-      type === 1 ? physicalActivityIndex : mentalActivityIndex;
-    return dataToRender[currentIndex]?.text || "";
+    return data.item[questionIndex]?.text || "";
   };
 
   return (
     <>
       <div>
-        <h3 className="static-question">
-          {type === 1
-            ? "How much physical difficulty do you have in managing the following"
-            : "How much mental difficulty do you have in managing the following ?"}
-        </h3>
-        <p className="dynamic-question">{handleQuestionRender()}</p>
+        <h3 className="static-question">{handleQuestionRender()}</h3>
         <div className="mobile-options">
           {options.map((option, index) => (
             <label key={index} className="mobile-option-label">

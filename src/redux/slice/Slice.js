@@ -9,6 +9,8 @@ const initialState = {
   physicalActivityIndex: 0,
   mentalActivityIndex: 0,
   selectedDifficulty: "",
+  questionIndex: 0,
+  allAnswers: [],
 };
 
 export const userSlice = createSlice({
@@ -39,7 +41,12 @@ export const userSlice = createSlice({
     setSelectedDifficulty: (state, action) => {
       state.selectedDifficulty = action.payload;
     },
-
+    updateQuestionIndex: (state, action) => {
+      state.questionIndex = action.payload;
+    },
+    updateAllAnswer: (state, action) => {
+      state.allAnswers = action.payload;
+    },
     resetData: (state) => {
       return initialState;
     },
@@ -56,6 +63,8 @@ export const {
   setPhysicalActivityAnswer,
   setPhysicalActivityIndex,
   setSelectedDifficulty,
+  updateQuestionIndex,
+  updateAllAnswer,
 } = userSlice.actions;
 
 export default userSlice.reducer;
