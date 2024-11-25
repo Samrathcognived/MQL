@@ -1,4 +1,3 @@
-import { useSelector } from "react-redux";
 import MQLQuestionnaireUI from "../../maql-questionnaire-uI/MQLQuestionnaireUI";
 import MobileMqlUi from "../../mobile-ui/MobileMqlUi";
 import useResponsiveDetect from "../../../custom-hook/useResponsiveDetect";
