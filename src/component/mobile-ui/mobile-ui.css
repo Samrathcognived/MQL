@@ -1,3 +1,6 @@
+.mobile-ui-container {
+  height: 100%;
+}
 .dropdown {
   position: relative;
 }
@@ -56,20 +59,19 @@
 }
 
 .static-question {
-  font-size: 0.75rem;
-  font-weight: 400;
   text-align: center;
-  margin: 10px 0;
+  margin: 20px 0;
   padding: 10px 20px;
   background-color: #faf5f6;
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   font-weight: 700;
+  margin-top: 0;
 }
 
 .mobile-options {
   display: flex;
   flex-direction: column;
-  margin: 10px 20px;
+  margin: 30px 20px;
 }
 
 .mobile-options .mobile-option-label {
@@ -188,12 +190,17 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 15px;
+  margin: 20px 10px;
+  margin-bottom: 0;
 }
 
 .question-wraper {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 80vh;
+  height: 85%;
+}
+
+.category-question-container {
+  height: 15%;
 }

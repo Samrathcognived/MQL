@@ -46,7 +46,7 @@ const CategoryQuestion = () => {
         <span className="question-count">{questionIndex + 1} of 8</span>
       </div>
       <span className="category-name">
-        {questionIndex + 1 <= 4 ? "Physical effort" : "Mental effort"}
+        {questionIndex + 1 <= 4 ? "Physical Effort" : "Mental Effort"}
       </span>
     </div>
   );

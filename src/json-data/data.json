@@ -7,42 +7,42 @@
   "item": [
     {
       "linkId": "1",
-      "text": "How much physical difficulty do you experience in managing basic daily activities such as moving around, brushing your hair, getting dressed, and using the bathroom?",
+      "text": "How much  difficulty do you have in managing basic daily activities such as moving around, brushing your hair, getting dressed, and using the bathroom?",
       "type": "string"
     },
     {
       "linkId": "2",
-      "text": "How much physical difficulty do you experience in managing advanced daily activities such as cleaning, shopping, and cooking?",
+      "text": "How much  difficulty do you have in managing advanced daily activities such as cleaning, shopping, and cooking?",
       "type": "string"
     },
     {
       "linkId": "3",
-      "text": "How much physical difficulty do you experience in managing work or school activities?",
+      "text": "How much  difficulty do you have in managing work or school activities?",
       "type": "string"
     },
     {
       "linkId": "4",
-      "text": "How much physical difficulty do you experience in managing hobbies, leisure, and community activities?",
+      "text": "How much  difficulty do you have in managing hobbies, leisure, and community activities?",
       "type": "string"
     },
     {
       "linkId": "5",
-      "text": "How much mental difficulty do you experience in managing your own needs?",
+      "text": "How much difficulty do you have in managing your own needs?",
       "type": "string"
     },
     {
       "linkId": "6",
-      "text": "How much mental difficulty do you experience in managing your immediate family's needs?",
+      "text": "How much difficulty do you have in managing your immediate family's needs?",
       "type": "string"
     },
     {
       "linkId": "7",
-      "text": "How much mental difficulty do you experience in managing the needs of your extended family, friends, and co-workers?",
+      "text": "How much difficulty do you have in managing the needs of your extended family, friends, and co-workers?",
       "type": "string"
     },
     {
       "linkId": "8",
-      "text": "How much mental difficulty do you experience in managing community needs?",
+      "text": "How much difficulty do you have in managing community needs?",
       "type": "string"
     }
   ]
