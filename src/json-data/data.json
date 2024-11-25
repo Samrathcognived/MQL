@@ -7,7 +7,7 @@
   "item": [
     {
       "linkId": "1",
-      "text": "How much  difficulty do you have in managing basic daily activities such as moving around, brushing your hair, getting dressed, and using the bathroom?",
+      "text": "How much  difficulty do you have in managing basic daily activities such as moving around, brushing your teeth, getting dressed, and using the bathroom?",
       "type": "string"
     },
     {

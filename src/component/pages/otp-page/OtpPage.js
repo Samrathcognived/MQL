@@ -20,7 +20,7 @@ const OtpPage = () => {
       <div className="otp-header">
         <img src={modusLogo} alt="Modus Logo" className="logo" />
       </div>
-      <p className="otp-para">Enter OTP to Begin.</p>
+      {/* <p className="otp-para">Enter OTP to Begin.</p> */}
       <span className="otp-span">
         OTP was sent your mobile number 93*****34
       </span>

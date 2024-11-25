@@ -192,6 +192,8 @@
   justify-content: center;
   margin: 20px 10px;
   margin-bottom: 0;
+  color: #008081;
+  text-transform: capitalize;
 }
 
 .mql-heading {
