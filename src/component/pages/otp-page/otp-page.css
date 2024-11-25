@@ -81,3 +81,41 @@
   touch-action: manipulation;
   box-shadow: 4px 4px 40px 2px #676a6b26;
 }
+
+@media screen and (min-width: 728px) {
+  .otp-input-field {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+  }
+  .submit-button {
+    background-color: #cbf3f3;
+    border-radius: 20px;
+    border: 5px solid #ffffff;
+    border-style: none;
+    box-sizing: border-box;
+    color: black;
+    font-weight: 800;
+    font-size: 1.2rem;
+    width: 20%;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: 500;
+    height: 40px;
+    line-height: 20px;
+    list-style: none;
+    margin: 0;
+    outline: none;
+    padding: 5px 20px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    transition: color 100ms;
+    vertical-align: baseline;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    box-shadow: 4px 4px 40px 2px #676a6b26;
+  }
+}

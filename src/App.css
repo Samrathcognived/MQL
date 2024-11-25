@@ -1,8 +1,9 @@
 .app .heading {
-  width: 80%;
+  width: 90%;
   margin: 0 auto;
   margin-top: 25px;
   margin-bottom: -40px;
+  text-align: center;
 }
 
 .app .heading span {

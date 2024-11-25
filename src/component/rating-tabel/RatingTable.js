@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import RatingRow from "../rating-row/RatingRow";
-import data from "../../json-data/data.json";
+import data from "../../json-data/webData.json";
 import { useDispatch } from "react-redux";
 import {
   updatePhysicalScore,
@@ -55,12 +55,8 @@ const RatingTable = ({ title }) => {
   return (
     <table>
       <thead>
-        <tr>
-          <th className="heading">
-            {title === "Physical Capapcity"
-              ? "How much physical difficulty do you have in managing the following"
-              : "How much mental difficulty do you have in managing the following ?"}
-          </th>
+        <tr className="tabel-heading">
+          <th className="tabel-heading"></th>
           <th>No Difficulty</th>
           <th>Mild Difficulty</th>
           <th>Moderate Difficulty</th>

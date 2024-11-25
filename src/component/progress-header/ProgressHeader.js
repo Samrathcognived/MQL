@@ -1,13 +1,22 @@
 import React from "react";
 
 const ProgressHeader = ({ capacity, title }) => {
+  const handleSubHeading = () => {
+    if (title === "Physical Capacity") {
+      return "How much physical difficulty do you have in managing the following:";
+    }
+    return "How much mental difficulty do you have in managing the following:";
+  };
+
   return (
     <div className="header">
-      <div>
-        {title}: <span className="progress">{Math.ceil(capacity)}%</span>
-      </div>
+      <p className="title-name">
+        {title === "Physical Capacity"
+          ? "Physical Activity"
+          : "Mental Activity"}{" "}
+      </p>
       <div className="heading-name">
-        <span>Please rate your effort for each of these items</span>
+        <span>{handleSubHeading()}</span>
       </div>
     </div>
   );

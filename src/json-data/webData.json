@@ -1,0 +1,49 @@
+{
+  "resourceType": "Questionnaire",
+  "id": "MQL-Questionnaire",
+  "title": "MQL Functional Assessment",
+  "status": "active",
+  "subjectType": ["Patient"],
+  "item": [
+    {
+      "linkId": "1",
+      "text": "Basic daily living: moving around, brushing your hair, getting dressed, and using the bathroom?",
+      "type": "string"
+    },
+    {
+      "linkId": "2",
+      "text": "Advanced daily living: cleaning, shopping, cooking",
+      "type": "string"
+    },
+    {
+      "linkId": "3",
+      "text": "Work or school",
+      "type": "string"
+    },
+    {
+      "linkId": "4",
+      "text": "Hobbies, leisure, and community activities",
+      "type": "string"
+    },
+    {
+      "linkId": "5",
+      "text": "Your own needs",
+      "type": "string"
+    },
+    {
+      "linkId": "6",
+      "text": "Your immediate family needs",
+      "type": "string"
+    },
+    {
+      "linkId": "7",
+      "text": "Extended family, friends, co-workers needs",
+      "type": "string"
+    },
+    {
+      "linkId": "8",
+      "text": "Community Needs",
+      "type": "string"
+    }
+  ]
+}
