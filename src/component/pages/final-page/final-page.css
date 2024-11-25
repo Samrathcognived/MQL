@@ -1,0 +1,23 @@
+.final-page-container h1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  margin: 50px;
+  text-align: center;
+  font-weight: 400;
+}
+
+.final-page-header {
+  height: 43px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px;
+  padding: 40px;
+}
+
+.final-page-header .logo {
+  width: 173px;
+  height: 100%;
+}
