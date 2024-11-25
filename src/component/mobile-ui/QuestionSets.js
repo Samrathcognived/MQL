@@ -60,21 +60,23 @@ const QuestionSet = ({ type }) => {
 
   return (
     <>
-      <div>
-        <h3 className="static-question">{handleQuestionRender()}</h3>
-        <div className="mobile-options">
-          {options.map((option, index) => (
-            <label key={index} className="mobile-option-label">
-              <input
-                type="radio"
-                value={option}
-                checked={selectedDifficulty === option}
-                onChange={() => dispatch(setSelectedDifficulty(option))}
-                style={{ marginRight: "10px" }}
-              />
-              {option}
-            </label>
-          ))}
+      <div className="question-wraper">
+        <div className="question-container">
+          <h3 className="static-question">{handleQuestionRender()}</h3>
+          <div className="mobile-options">
+            {options.map((option, index) => (
+              <label key={index} className="mobile-option-label">
+                <input
+                  type="radio"
+                  value={option}
+                  checked={selectedDifficulty === option}
+                  onChange={() => dispatch(setSelectedDifficulty(option))}
+                  style={{ marginRight: "10px" }}
+                />
+                {option}
+              </label>
+            ))}
+          </div>
         </div>
         <div className="button-group">
           <button

@@ -9,12 +9,12 @@
 }
 
 .final-page-header {
-  width: 100%;
   height: 43px;
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 20px;
+  padding: 40px;
 }
 
 .final-page-header .logo {

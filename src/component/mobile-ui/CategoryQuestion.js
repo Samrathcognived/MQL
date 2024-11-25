@@ -31,21 +31,23 @@ const CategoryQuestion = () => {
     return questionIndex === 0;
   };
   return (
-    <div className="category-question">
-      <div
-        className={handleBackButtonDisable() ? "disable" : "back-btn"}
-        onClick={handlePreviousIndex}
-      >
-        <span>
-          {" "}
-          <LeftBackArrow disabled={handleBackButtonDisable()} />
-        </span>
-        <button>Back</button>
+    <div className="category-question-container">
+      <div className="category-question">
+        <div
+          className={handleBackButtonDisable() ? "disable" : "back-btn"}
+          onClick={handlePreviousIndex}
+        >
+          <span>
+            {" "}
+            <LeftBackArrow disabled={handleBackButtonDisable()} />
+          </span>
+          <button>Back</button>
+        </div>
+        <span className="question-count">{questionIndex + 1} of 8</span>
       </div>
-      <span>
+      <span className="category-name">
         {questionIndex + 1 <= 4 ? "Physical effort" : "Mental effort"}
       </span>
-      <span className="question-count">{questionIndex + 1} of 8</span>
     </div>
   );
 };
