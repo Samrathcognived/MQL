@@ -186,12 +186,11 @@
 
 .category-name {
   font-size: 1.2rem;
-  font-weight: 600;
+  font-weight: 700;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 20px 10px;
-  margin-bottom: 0;
+  margin: 10px;
   color: #008081;
   text-transform: capitalize;
 }
@@ -212,8 +211,4 @@
   flex-direction: column;
   justify-content: space-between;
   height: 61%;
-}
-
-.category-question-container {
-  height: 25%;
 }
