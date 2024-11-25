@@ -45,6 +45,7 @@ const CategoryQuestion = () => {
         </div>
         <span className="question-count">{questionIndex + 1} of 8</span>
       </div>
+      <span className="mql-heading">Modus Quality of Life (MQL)</span>
       <span className="category-name">
         {questionIndex + 1 <= 4 ? "Physical Effort" : "Mental Effort"}
       </span>

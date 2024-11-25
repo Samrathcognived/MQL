@@ -11,9 +11,7 @@ const ProgressHeader = ({ capacity, title }) => {
   return (
     <div className="header">
       <p className="title-name">
-        {title === "Physical Capacity"
-          ? "Physical Activity"
-          : "Mental Activity"}{" "}
+        {title === "Physical Capacity" ? "Physical Effort" : "Mental Effort"}{" "}
       </p>
       <div className="heading-name">
         <span>{handleSubHeading()}</span>
