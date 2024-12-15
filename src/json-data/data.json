@@ -7,42 +7,42 @@
   "item": [
     {
       "linkId": "1",
-      "text": "Basic daily living: moving around, brushing your hair, getting dressed, and using the bathroom?",
+      "text": "How much  difficulty do you have in managing basic daily activities such as moving around, brushing your teeth, getting dressed, and using the bathroom?",
       "type": "string"
     },
     {
       "linkId": "2",
-      "text": "Advance daily living: cleaning, shopping, cooking",
+      "text": "How much  difficulty do you have in managing advanced daily activities such as cleaning, shopping, and cooking?",
       "type": "string"
     },
     {
       "linkId": "3",
-      "text": "Work or school",
+      "text": "How much  difficulty do you have in managing work or school activities?",
       "type": "string"
     },
     {
       "linkId": "4",
-      "text": "Hobbies, Leisure and community activities",
+      "text": "How much  difficulty do you have in managing hobbies, leisure, and community activities?",
       "type": "string"
     },
     {
       "linkId": "5",
-      "text": "Your own needs",
+      "text": "How much difficulty do you have in managing your own needs?",
       "type": "string"
     },
     {
       "linkId": "6",
-      "text": "Your immediate family needs",
+      "text": "How much difficulty do you have in managing your immediate family's needs?",
       "type": "string"
     },
     {
       "linkId": "7",
-      "text": "Extended family,friends, co-workers needs",
+      "text": "How much difficulty do you have in managing the needs of your extended family, friends, and co-workers?",
       "type": "string"
     },
     {
       "linkId": "8",
-      "text": "Community needs",
+      "text": "How much difficulty do you have in managing community needs?",
       "type": "string"
     }
   ]

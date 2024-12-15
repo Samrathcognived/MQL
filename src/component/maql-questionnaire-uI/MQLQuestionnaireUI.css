@@ -1,12 +1,12 @@
 .container {
-  width: 80%;
+  width: 90%;
   background-color: white;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 20px;
   margin: auto;
   margin-top: 50px;
   margin-bottom: 50px;
+  padding: 5px 20px;
 }
 
 .header {
@@ -15,14 +15,23 @@
   align-items: center;
   font-size: 20px;
   margin-bottom: 20px;
-  margin-right: 20px;
+  background-color: #faf5f6;
+  margin-left: -20px;
+  margin-right: -20px;
+  padding: 0 20px;
+}
+
+.title-name {
+  color: black;
+  font-size: 1.75rem;
+  font-weight: 400;
+  margin: 10px;
 }
 
 .heading-name {
-  background-color: #33c4a0;
-  color: #fff;
-  padding: 15px 35px;
-  border-radius: 5px;
+  color: black;
+  font-weight: 700;
+  font-size: 1rem;
 }
 
 .header .progress {
@@ -40,8 +49,10 @@ table {
 th {
   text-align: center;
   font-weight: normal;
-  color: #33c4a0;
+  color: black;
   padding: 10px;
+  font-size: 1rem;
+  font-weight: 300;
   border-radius: 10px 10px 0 0;
 }
 
@@ -56,9 +67,13 @@ td {
   text-align: center;
 }
 
+tr {
+  border-top: 1px solid #e8e8e8;
+}
+
 td:first-child {
   text-align: left;
-  font-weight: 500;
+  font-size: 1rem;
 }
 
 /* Radio button styling */
@@ -81,5 +96,50 @@ td:first-child {
 }
 
 .radio-group input[type="radio"]:checked + label {
-  background-color: #33c4a0;
+  background-color: #38d0d0;
+}
+
+.tabel-heading {
+  border: none;
+}
+
+.tabel-heading {
+  width: 40%;
+}
+
+.btn-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+.web-submit-btn {
+  background-color: #cbf3f3;
+  border-radius: 20px;
+  border: 5px solid #ffffff;
+  border-style: none;
+  box-sizing: border-box;
+  color: black;
+  font-weight: 800;
+  font-size: 1.2rem;
+  width: 200px;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 500;
+  height: 40px;
+  line-height: 20px;
+  list-style: none;
+  margin: 0;
+  outline: none;
+  padding: 5px 20px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: color 100ms;
+  vertical-align: baseline;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  box-shadow: 4px 4px 40px 2px #676a6b26;
 }
